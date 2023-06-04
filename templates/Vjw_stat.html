@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{% url 'ecomapp:home' %}">At Your Doorstep</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'ecomapp:home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:allproducts' %}">Products</a>
+            </li>
+
+            <li class="nav_item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/category/Provisions">Provisions</a>
+                <a class="dropdown-item" href="/category/Stationery">Stationery</a>
+                <a class="dropdown-item" href="/category/Electronic Gadgets">Electronics</a>
+                <a class="dropdown-item" href="/category/Clothing and Fashion">Clothing & Fashion</a>
+                <a class="dropdown-item" href="/category/Home Care & Furniture">Home Care & Furniture</a>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:pie_chart' %}">Dashboard</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:mycart' %}">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:stores' %}">Stores</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if request.user.customer %}
+                <a class="dropdown-item" href="{% url 'ecomapp:customerprofile' %}">My Profile</a>
+                <a class="dropdown-item" href="{% url 'ecomapp:customerlogout' %}">Logout</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'ecomapp:customerregistration' %}">Register</a>
+                <a class="dropdown-item" href="{% url 'ecomapp:customerlogin' %}">Login</a>
+                {% endif %}
+                </div>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'ecomapp:search' %}" method="GET">
+            <input id="myInput" name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        </nav>
+    <hr>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html><!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #7aa8b7;
+        border-radius: 6px;
+        outline: none;
+</style>
+</head>
+<body>
+
+
+<div class="gallery">
+  <a target="_blank" href="https://content.jdmagicbox.com/comp/vijayawada/j9/0866px866.x866.151211124726.q6j9/catalogue/akshaya-books-corner-eluru-road-vijayawada-book-shops-25iqqwd.jpg">
+    <img src="https://content.jdmagicbox.com/comp/vijayawada/j9/0866px866.x866.151211124726.q6j9/catalogue/akshaya-books-corner-eluru-road-vijayawada-book-shops-25iqqwd.jpg" alt="Akshaya" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Akshaya Books Corner</b></p>
+      A reputed book store with various literary and stationery products</div>
+     <center><a href="/category/Stationery" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://content3.jdmagicbox.com/comp/vijayawada/x6/0866px866.x866.091231194412.a6x6/catalogue/camel-stationers-one-town-vijayawada-stationery-shops-kvpwxq.jpg">
+    <img src="https://content3.jdmagicbox.com/comp/vijayawada/x6/0866px866.x866.091231194412.a6x6/catalogue/camel-stationers-one-town-vijayawada-stationery-shops-kvpwxq.jpg" alt="Camel" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Camel Stationers</b></p>
+      One stop for all students' stationery needs</div>
+     <center><a href="/category/Stationery" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://content3.jdmagicbox.com/comp/vijayawada/p6/0866px866.x866.140430112656.a3p6/catalogue/sri-vyshnavi-books-stationery-vijayawada-0ycpnqslde-250.jpg">
+    <img src="https://content3.jdmagicbox.com/comp/vijayawada/p6/0866px866.x866.140430112656.a3p6/catalogue/sri-vyshnavi-books-stationery-vijayawada-0ycpnqslde-250.jpg" alt="Sri Vaishnavi" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Sri Vyshnavi Books & Stationery</b></p>
+      Renowned for its wide range of available products</div>
+     <center><a href="/category/Stationery" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://threebestrated.in/images/DiamondBookCentre-Vijayawada-AP.jpeg">
+    <img src="https://threebestrated.in/images/DiamondBookCentre-Vijayawada-AP.jpeg" alt="Diamond" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Diamond Book Centre</b></p>
+     A reputed books and stationery hub</div>
+     <center><a href="/category/Stationery" class="button">Shop</a></center>
+</div>
+</body>
+</html>

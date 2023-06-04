@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{% url 'ecomapp:home' %}">At Your Doorstep</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'ecomapp:home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:allproducts' %}">Products</a>
+            </li>
+
+            <li class="nav_item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/category/Provisions">Provisions</a>
+                <a class="dropdown-item" href="/category/Stationery">Stationery</a>
+                <a class="dropdown-item" href="/category/Electronic Gadgets">Electronics</a>
+                <a class="dropdown-item" href="/category/Clothing and Fashion">Clothing & Fashion</a>
+                <a class="dropdown-item" href="/category/Home Care & Furniture">Home Care & Furniture</a>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:pie_chart' %}">Dashboard</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:mycart' %}">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ecomapp:stores' %}">Stores</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if request.user.customer %}
+                <a class="dropdown-item" href="{% url 'ecomapp:customerprofile' %}">My Profile</a>
+                <a class="dropdown-item" href="{% url 'ecomapp:customerlogout' %}">Logout</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'ecomapp:customerregistration' %}">Register</a>
+                <a class="dropdown-item" href="{% url 'ecomapp:customerlogin' %}">Login</a>
+                {% endif %}
+                </div>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'ecomapp:search' %}" method="GET">
+            <input id="myInput" name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        </nav>
+    <hr>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html><!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #7aa8b7;
+        border-radius: 6px;
+        outline: none;
+</style>
+</head>
+<body>
+
+
+<div class="gallery">
+  <a target="_blank" href="https://content.jdmagicbox.com/comp/vijayawada/w5/0866px866.x866.170325194739.t4w5/catalogue/sai-harika-enterprises-electronics-and-home-appilances-mutyalammapadu-vijayawada-electronic-goods-showrooms-0ouz7uthla.jpg">
+    <img src="https://content.jdmagicbox.com/comp/vijayawada/w5/0866px866.x866.170325194739.t4w5/catalogue/sai-harika-enterprises-electronics-and-home-appilances-mutyalammapadu-vijayawada-electronic-goods-showrooms-0ouz7uthla.jpg" alt="K-Mart Store" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Sai Harika Enterprises</b></p>
+      An electronic store in Vijayawada consisting of all home accessories and other products from most popular brands </div>
+     <center><a href="/category/Electronic Gadgets" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://threebestrated.in/images/ECity-Vijayawada-AP.png">
+    <img src="https://threebestrated.in/images/ECity-Vijayawada-AP.png" alt="eCity" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>e-City</b></p>
+      A store with all the brand new mobiles and other electronic gadgets</div>
+     <center><a href="/category/Electronic Gadgets" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://askqbookindiastorage.blob.core.windows.net/mobilephones-20576/969a4898-4663-4a05-b7fd-40d64b0eb5ef-preview.jpg">
+    <img src="https://askqbookindiastorage.blob.core.windows.net/mobilephones-20576/969a4898-4663-4a05-b7fd-40d64b0eb5ef-preview.jpg" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>e-World</b></p>
+      The ideal place for all kinds of branded mobile phones,Power Banks,Memory Cards etc.</div>
+     <center><a href="/category/Electronic Gadgets" class="button">Shop</a></center>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://content.jdmagicbox.com/comp/vijayawada/s4/0866px866.x866.130130141414.n5s4/catalogue/sonovision-enterprises-patamata-vijayawada-electronic-goods-showrooms-su4xe3bxk4.jpg">
+    <img src="https://content.jdmagicbox.com/comp/vijayawada/s4/0866px866.x866.130130141414.n5s4/catalogue/sonovision-enterprises-patamata-vijayawada-electronic-goods-showrooms-su4xe3bxk4.jpg" alt="Sonovision" width="600" height="400">
+  </a>
+  <div class="desc"><p><b>Sonovision Electronics</b></p>
+     A highly-reputed store at the heart of the city </div>
+     <center><a href="/category/Electronic Gadgets" class="button">Shop</a></center>
+</div>
+</body>
+</html>

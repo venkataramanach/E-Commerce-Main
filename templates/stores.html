@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} All Products {% endblock %}
+
+{% block content %}
+<div class="container" >
+    <h3>Locations</h3><hr>
+
+<div>
+
+<p>In this section, some stores based in the locality of the following three places are made available to choose from for purchasing:</p><br>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+	#map {
+		height: 300px;
+		width: 50%;
+	}
+	.button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #7aa8b7;
+        border-radius: 6px;
+        outline: none;
+	</style>
+</head>
+<body>
+	<!-- Tadepalli-->
+	<h3>Stores near by KL University</h3>
+	<div id1="map"></div>
+	<img src="https://images.shiksha.com/mediadata/images/1537422868phpP1eDGz.jpeg" alt="KL University Image" style="width:900px;height:500px;"><br><br>
+	<!--<script>
+	function initMap() {
+		var uluru = {lat: 16.4799, lng: 80.6174};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>
+	<div class="card">
+    <div>
+      <img src="">
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+    </div>
+  </div>
+	<script async defer
+	src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>-->
+	<ul>
+		<li><a href="{% url 'ecomapp:klu_groc'%}">Provisions</a></li>
+		<li><a href="{% url 'ecomapp:klu_stat'%}">Stationery</a></li>
+	</ul>
+
+<!-- Guntur--><br><br>
+<h3>Stores near by Guntur</h3>
+	<div id1="map"></div>
+	<img src="https://images.newindianexpress.com/uploads/user/imagelibrary/2020/4/13/w900X450/Guntur_EPS.jpg" alt="Guntur Image"><br><br>
+	<!--<script>
+	function initMap() {
+		var uluru = {lat: 16.4799, lng: 80.6174};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>
+	<div class="card">
+    <div>
+      <img src="">
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+    </div>
+  </div>
+	<script async defer
+	src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>-->
+	<ul>
+		<li><a href="{% url 'ecomapp:gtr_groc'%}">Provisions</a></li>
+		<li><a href="{% url 'ecomapp:gtr_stat'%}">Stationery</a></li>
+		<li><a href="{% url 'ecomapp:gtr_elec'%}">Electronics</a></li>
+		<li><a href="{% url 'ecomapp:gtr_cloth'%}">Clothing & Fashion</a></li>
+		<li><a href="{% url 'ecomapp:gtr_home'%}">Home Care & Furniture</a></li>
+	</ul>
+	<!-- Vijayawada-->
+	<br><br>
+<h3>Stores in Vijayawada</h3>
+	<div id1="map"></div>
+	<img
+		src="https://www.thenewsminute.com/sites/default/files/styles/slideshow_image_size/public/Vijayawada_aerial_shot_screengrab_1200x800.jpg?itok=JhijsMN2" style="width:900px;height:500px;" alt="Vijayawada Image">
+		<br><br><!-- <script>
+	function initMap() {
+		var uluru = {lat: 16.4799, lng: 80.6174};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>-->
+	<ul>
+		<li><a href="{% url 'ecomapp:vjw_groc'%}">Provisions</a></li>
+		<li><a href="{% url 'ecomapp:vjw_stat'%}">Stationery</a></li>
+		<li><a href="{% url 'ecomapp:vjw_elec'%}">Electronics</a></li>
+		<li><a href="{% url 'ecomapp:vjw_cloth'%}">Clothing & Fashion</a></li>
+		<li><a href="{% url 'ecomapp:vjw_home'%}">Home Care & Furniture</a></li>
+	</ul>
+	<!--<div class="card">
+    <div>
+      <img src="">
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+    </div>
+  </div>
+	<script async defer
+	src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>-->
+
+<br><br>
+</body>
+</html>
+<!-- Map Files
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#map {
+		height: 300px;
+		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h3>GFG Google Maps Demo</h3>
+	<div id2="map"></div>
+	<script>
+	function initMap() {
+		var uluru = {lat: 16.3067, lng: 80.4365};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>
+	<script async defer
+	src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#map {
+		height: 300px;
+		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h3>GFG Google Maps Demo</h3>
+	<div id="map"></div>
+	<script>
+	function initMap() {
+		var uluru = {lat: 16.5062, lng: 80.6480};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>
+	<script async defer
+	src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>
+</body>
+</html>
+
+</div>
+-->
+	<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  #map {
+    height: 300px;
+    width: 50%;
+  }
+  </style>
+</head>
+<body>
+  <h3> Google Maps </h3>
+  <div id="map"></div>
+  <script>
+  function initMap() {
+    var uluru = {lat: 16.5062, lng: 80.6480};
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: uluru
+    });
+    var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+    });
+  }
+  </script>
+  <script async defer
+  src=
+"https://maps.googleapis.com/maps/api/js?key=
+AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+  </script>
+</body>
+</html>
+
+</div>
+{% endblock %}
+
+</div>
+</div>
+
